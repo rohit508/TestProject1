@@ -21,7 +21,7 @@ const Inputsearch = () => {
         <Box
           sx={{ ...style }}
         >
-          <TextField fullWidth label="Search" id="search" onChange={(e) => HandleChange(e.target.value, dispatch)} onBlur={() => Searchuser(Inputsearchvalue, dispatch)} />
+          <TextField fullWidth value={Inputsearchvalue}label="Search" id="search" onChange={(e) => HandleChange(e.target.value, dispatch)} onBlur={() => Searchuser(Inputsearchvalue, dispatch)} />
 
         </Box>
       </div>

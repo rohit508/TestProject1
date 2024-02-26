@@ -22,7 +22,10 @@ const UserList = () => {
     <>
       {Ismodalshowhide && <Modal open={Ismodalshowhide} />}
       <Paper style={{ maxHeight: 300, width: '30%', overflow: 'auto' }} elevation={0}>
-        <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        { users && users.length > 0 ?  <>
+        
+          <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+          
           {[...users].map((value) => {
             const labelId = `checkbox-list-secondary-label-${value.id}`;
             return (
@@ -50,7 +53,9 @@ const UserList = () => {
               </ListItem>
             );
           })}
-        </List></Paper></>
+        </List>
+        </> : <>   <h2>User Not Found</h2></>}
+   </Paper></>
 
   );
 }

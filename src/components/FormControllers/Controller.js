@@ -1,5 +1,6 @@
 import { setinputsearch, setloader, setmodalshowhide, setuserdetails, setusers } from "../Slice/createSlice";
 import { getUserslist, searchuser, userdetails } from "../Service/userservice";
+import { removeWhitespace } from "../../Global/GlobalFunctions";
 
 
 // get user details controller
@@ -23,14 +24,16 @@ export const getuserurl = async (url, dispatch) => {
 // handle change controller
 export const HandleChange = (text, dispatch) => {
   debugger;
-  dispatch(setinputsearch(text))
+  const RemoveWhitespace = removeWhitespace(text)
+  dispatch(setinputsearch(RemoveWhitespace))
 
 }
 
 
 // Search user controller
 export const Searchuser = async (text, dispatch) => {
-  debugger;
+  try {
+    debugger;
   if (text) {
     dispatch(setloader(true));
 
@@ -38,6 +41,9 @@ export const Searchuser = async (text, dispatch) => {
     if (data && data.status === 200) {
       dispatch(setusers([data.data]))
     }
+
+   
+ 
     dispatch(setinputsearch(text))
     dispatch(setloader(false));
 
@@ -46,6 +52,11 @@ export const Searchuser = async (text, dispatch) => {
    
   }
 
+  } catch (error) {
+    dispatch(setusers([]))
+    dispatch(setloader(false));
+    // GetUserslist(dispatch)
+  }
 
 }
 
