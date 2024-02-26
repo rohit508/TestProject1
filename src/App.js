@@ -33,6 +33,7 @@ const App = () => {
   //  users list Api calling.
   useEffect(() => {
     Getuserslist()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

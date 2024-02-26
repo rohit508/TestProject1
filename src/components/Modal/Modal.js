@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -101,7 +100,7 @@ const CustomizedDialogs = (props) => {
                 </Grid>
                 <Grid item xs={6}>
                   <Item> <p style={{ marginBottom: 10 }}><PermIdentityIcon fontSize='small' /></p>
-                    <a href={userdetails.html_url} target="_blank" > Profile</a></Item>
+                    <a href={userdetails.html_url} target="_blank"  rel="noreferrer" > Profile</a></Item>
 
                 </Grid>
               </Grid>
